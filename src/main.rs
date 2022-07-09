@@ -4,7 +4,7 @@ use speedy2d::{Graphics2D, Window};
 use std::rc::Rc;
 use std::time::Instant;
 
-struct MyWindowHandler {
+struct AppData {
     counter: usize,
     frame_count: u32,
     last_update: Instant,
@@ -20,7 +20,7 @@ fn prep_label(font: &Font, txt: &str) -> Rc<speedy2d::font::FormattedTextBlock> 
 fn main() {
     // let window = Window::new_centered("Speedy2D: Hello World", (640, 240)).unwrap();
     let window = Window::new_fullscreen_borderless("FPS draw").unwrap();
-    window.run_loop(MyWindowHandler {
+    window.run_loop(AppData {
         counter: 0,
         frame_count: 0,
         last_update: std::time::Instant::now(),
@@ -33,7 +33,7 @@ fn main() {
     })
 }
 
-impl WindowHandler for MyWindowHandler {
+impl WindowHandler for AppData {
     fn on_draw(&mut self, helper: &mut WindowHelper, graphics: &mut Graphics2D) {
         graphics.clear_screen(speedy2d::color::Color::BLACK);
         let draw_start = Instant::now();
