@@ -2,6 +2,8 @@
 
 FPS count is a simple X11/Wayland utility which shows frame count, FPS and draw time for each frame.
 
+![image](https://user-images.githubusercontent.com/652496/178106067-ab6385cf-5243-4627-9335-9f56b87b6f31.png)
+
 It has two primary objectives:
 * To allow speedcam screen recording to check if monitor is skip frames or delay output.
 * To practice with speedy2d library (which is doing most heavylifting here).
