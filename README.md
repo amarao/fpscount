@@ -18,20 +18,25 @@ How to use:
 
 ## Building from source
 
-1. Clone this repo:
+(instruction for Linux)
+
+1. Install `fonts-noto-core` package. Build process expects to find
+   `/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf` font file.
+
+2. Clone this repo:
    ```sh
    git clone https://github.com/amarao/fpscount
    ```
 
-2. Compile
+3. Compile
   ```sh
   cargo build --release
   ```
 
-3. Run:
+4. Run:
    ```sh
    ./target/release/fpscount
    ```
 
-4. Press Alt-F4 to exit.
+5. Press Alt-F4 to exit.
 

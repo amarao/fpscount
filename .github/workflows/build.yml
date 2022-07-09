@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install fonts
+      run: sudo apt update && sudo apt install -y fonts-noto-core
     - name: Build
       run: cargo build --release --verbose
     - name: Run tests
