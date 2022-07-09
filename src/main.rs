@@ -35,18 +35,20 @@ fn main() {
 
 impl WindowHandler for MyWindowHandler {
     fn on_draw(&mut self, helper: &mut WindowHelper, graphics: &mut Graphics2D) {
-        let message = std::format!(
-            "Frame: {}, FPS: {:.2}, frame draw time: {:.2} ms",
-            self.counter,
-            self.fps,
-            self.draw_time
-        );
-        let draw_start = Instant::now();
         graphics.clear_screen(speedy2d::color::Color::BLACK);
-        let text = prep_label(&self.font, &message);
+        let draw_start = Instant::now();
+        let text = prep_label(
+            &self.font,
+            &std::format!(
+                "Frame: {}, FPS: {:.2}, frame draw time: {:.2} µs",
+                self.counter,
+                self.fps,
+                self.draw_time
+            ),
+        );
         graphics.draw_text((0.0, 0.0), speedy2d::color::Color::RED, &text);
         helper.request_redraw();
-        self.draw_time = draw_start.elapsed().as_secs_f32() * 1000.0;
+        self.draw_time = draw_start.elapsed().as_secs_f32() * 1000.0 * 1000.0;
         self.counter += 1;
         self.frame_count += 1;
         self.fps = 1.0 / (draw_start - self.last_update).as_secs_f32();
